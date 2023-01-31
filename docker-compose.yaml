@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  bhub-challenge-api:
+    image: ericcastrosantos/bhub-challenge-api:latest
+    container_name: "bhub-challenge-api"
+    ports:
+      - '8080:8080'
+    links:
+      - db-bhub-challenge     
+  db-bhub-challenge:
+    image: postgres
+    container_name: "db-bhub-challenge"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db-bhub-challenge
+    ports:
+      - '5432:5432'
