@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   bhub-challenge-api:
-    image: ericcastrosantos/bhub-challenge-api:latest
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
     container_name: "bhub-challenge-api"
     ports:
       - '8080:8080'
